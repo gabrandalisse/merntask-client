@@ -1,8 +1,11 @@
 # 📝 MERNTasks
 
 The MERNTasks app it's a project that I built in my process of learning and practice the MERN stack.
+
 The project it's simple, it's like Trello, it allows the user to organize and trak the tasks that conforms your project. 
+
 Like I've said, this app was developed with the MERN stack. For the frontend I used React and thanks to one of it's functions that is useContext it allowed to me control the state of all the app more easily and made it more maintainable.
+
 For the backend I created a few endpoints with the help of express.js, and so I implemented the MVC model.
 
 ### Deployment
