@@ -2,8 +2,8 @@ import React from "react";
 import tokenAuth from "./config/tokenAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Login from "./components/auth/Login";
-import NuevaCuenta from "./components/auth/NuevaCuenta";
+import LogIn from "./components/auth/LogIn";
+import SignIn from "./components/auth/SignIn";
 import Proyectos from "./components/proyectos/Proyectos";
 
 import TareaState from "./context/tareas/tareaState";
@@ -26,8 +26,8 @@ function App() {
           <AuthState>
             <Router>
               <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/nueva-cuenta" element={<NuevaCuenta />} />
+                <Route path="/" element={<LogIn />} />
+                <Route path="/nueva-cuenta" element={<SignIn />} />
                 // TODO: fix this private route
                 <Route path="/proyectos" element={<Proyectos />} />
                 {/* <RutaPrivada exact path="/proyectos" component={Proyectos} /> */}
