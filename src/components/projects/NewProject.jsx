@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext } from "react";
-import ProjectContext from "../../context/proyectos/proyectoContext";
+import ProjectContext from "../../context/projects/projectContext";
 
 const NewProject = () => {
   const projectsContext = useContext(ProjectContext);
@@ -11,7 +11,7 @@ const NewProject = () => {
 
   const { name } = project;
 
-  const onChangeProyecto = (e) => {
+  const onChangeProject = (e) => {
     saveProject({
       ...project,
       [e.target.name]: e.target.value,
@@ -51,7 +51,7 @@ const NewProject = () => {
             placeholder="Project Name"
             name="name"
             value={name}
-            onChange={onChangeProyecto}
+            onChange={onChangeProject}
           />
 
           <input

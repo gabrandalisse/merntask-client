@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState, useContext, useEffect } from "react";
-import AlertContext from "../../context/alertas/alertaContext";
-import AuthContext from "../../context/autenticacion/authContext";
+import AlertContext from "../../context/alerts/alertContext";
+import AuthContext from "../../context/authentication/authContext";
 
 const LogIn = (props) => {
   const alertContext = useContext(AlertContext);
@@ -17,7 +17,7 @@ const LogIn = (props) => {
     }
 
     if (message) {
-      showAlert(message.msg, message.categoria);
+      showAlert(message.msg, message.category);
     }
     // eslint-disable-next-line
   }, [message, authenticated, props.history]);

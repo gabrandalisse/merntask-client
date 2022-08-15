@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import TaskContext from "../../context/tareas/tareaContext";
-import ProjectContext from "../../context/proyectos/proyectoContext";
+import TaskContext from "../../context/tasks/taskContext";
+import ProjectContext from "../../context/projects/projectContext";
 
 const Task = ({ task }) => {
   const tasksContext = useContext(TaskContext);

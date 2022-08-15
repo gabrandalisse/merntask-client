@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import TaskContext from "../../context/tareas/tareaContext";
-import ProjectContext from "../../context/proyectos/proyectoContext";
+import TaskContext from "../../context/tasks/taskContext";
+import ProjectContext from "../../context/projects/projectContext";
 
 const Project = ({ project }) => {
   const projectContext = useContext(ProjectContext);
@@ -10,7 +10,7 @@ const Project = ({ project }) => {
   const { getTasks } = tasksContext;
 
   // Set the current project
-  const seleccionarProyecto = (id) => {
+  const selectProject = (id) => {
     actualProject(id); // Set a project as current
     getTasks(id); // Filter the tasks when the user click it
   };
@@ -20,7 +20,7 @@ const Project = ({ project }) => {
       <button
         type="button"
         className="btn btn-blank"
-        onClick={() => seleccionarProyecto(project._id)}
+        onClick={() => selectProject(project._id)}
       >
         {project.name}
       </button>

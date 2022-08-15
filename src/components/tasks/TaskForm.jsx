@@ -1,6 +1,6 @@
-import TaskContext from "../../context/tareas/tareaContext";
+import TaskContext from "../../context/tasks/taskContext";
 import React, { useContext, useState, useEffect } from "react";
-import ProjectContext from "../../context/proyectos/proyectoContext";
+import ProjectContext from "../../context/projects/projectContext";
 
 const TaskForm = () => {
   const projectsContext = useContext(ProjectContext);

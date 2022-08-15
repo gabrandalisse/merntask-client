@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useState, useContext, useEffect } from "react";
-import AlertaContext from "../../context/alertas/alertaContext";
-import AuthContext from "../../context/autenticacion/authContext";
+import AlertContext from "../../context/alerts/alertContext";
+import AuthContext from "../../context/authentication/authContext";
 
 const SignIn = (props) => {
-  const alertContext = useContext(AlertaContext);
+  const alertContext = useContext(AlertContext);
   const { alert, showAlert } = alertContext;
 
   const authContext = useContext(AuthContext);
@@ -13,11 +13,11 @@ const SignIn = (props) => {
   // If the user is authenticated or sign in or if it is a duplicated sign in
   useEffect(() => {
     if (authenticated) {
-      props.history.push("/proyectos");
+      props.history.push("/projects");
     }
 
     if (message) {
-      showAlert(message.msg, message.categoria);
+      showAlert(message.msg, message.category);
     }
     // eslint-disable-next-line
   }, [message, authenticated, props.history]);

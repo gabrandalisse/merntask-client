@@ -1,29 +1,29 @@
-// Types proyectos
-export const FORMULARIO_PROYECTO = "FORMULARIO_PROYECTO";
-export const OBTENER_PROYECTOS = "OBTENER_PROYECTOS";
-export const AGREGAR_PROYECTO = "AGREGAR_PROYECTO";
-export const VALIDAR_FORMULARIO = "VALIDAR_FORMULARIO";
-export const PROYECTO_ACTUAL = "PROYECTO_ACTUAL";
-export const ELIMINAR_PROYECTO = "ELIMINAR_PROYECTO";
-export const PROYECTO_ERROR = "PROYECTO_ERROR";
+// Projects types
+export const PROJECT_FORM = "PROJECT_FORM";
+export const GET_PROJECTS = "GET_PROJECTS";
+export const ADD_PROJECT = "ADD_PROJECT";
+export const VALIDATE_FORM = "VALIDATE_FORM";
+export const ACTUAL_PROJECT = "ACTUAL_PROJECT";
+export const DELETE_PROJECT = "DELETE_PROJECT";
+export const ERROR_PROJECT = "ERROR_PROJECT";
 
-// Types tareas
-export const TAREAS_PROYECTOS = "TAREAS_PROYECTOS";
-export const AGREGAR_TAREA = "AGREGAR_TAREA";
-export const VALIDAR_TAREA = "VALIDAR_TAREA";
-export const ELIMINAR_TAREA = "ELIMINAR_TAREA";
-export const TAREA_ACTUAL = "TAREA_ACTUAL";
-export const ACTUALIZAR_TAREA = "ACTUALIZAR_TAREA";
-export const LIMPIAR_TAREA = "LIMPIAR_TAREA";
+// Tasks types
+export const PROJECT_TASKS = "PROJECT_TASKS";
+export const ADD_TASK = "ADD_TASK";
+export const VALIDATE_TASK = "VALIDATE_TASK";
+export const DELETE_TASK = "DELETE_TASK";
+export const ACTUAL_TASK = "ACTUAL_TASK";
+export const UPDATE_TASK = "UPDATE_TASK";
+export const CLEAN_TASK = "CLEAN_TASK";
 
-// Types alertas
-export const MOSTRAR_ALERTA = "MOSTRAR_ALERTA";
-export const OCULTAR_ALERTA = "OCULTAR_ALERTA";
+// Alert types
+export const SHOW_ALERT = "SHOW_ALERT";
+export const HIDE_ALERT = "HIDE_ALERT";
 
-// Types auth
-export const REGISTRO_EXITOSO = "REGISTRO_EXITOSO";
-export const REGISTRO_ERROR = "REGISTRO_ERROR";
-export const OBTENER_USUARIO = "OBTENER_USUARIO";
-export const LOGIN_EXITOSO = "LOGIN_EXITOSO";
+// Auth tyes
+export const SUCCESS_REGISTER = "SUCCESS_REGISTER";
+export const ERROR_REGISTER = "ERROR_REGISTER";
+export const GET_USER = "GET_USER";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
-export const CERRAR_SESION = "CERRAR_SESION";
+export const LOG_OUT = "LOG_OUT";

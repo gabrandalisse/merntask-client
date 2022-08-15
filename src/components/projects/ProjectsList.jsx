@@ -1,14 +1,14 @@
 import Project from "./Project";
 import React, { useContext, useEffect } from "react";
-import AlertaContext from "../../context/alertas/alertaContext";
-import ProjectContext from "../../context/proyectos/proyectoContext";
+import AlertContext from "../../context/alerts/alertContext";
+import ProjectContext from "../../context/projects/projectContext";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const ProjectsList = () => {
   const projectsContext = useContext(ProjectContext);
   const { message, projects, getProjects } = projectsContext;
 
-  const alertContext = useContext(AlertaContext);
+  const alertContext = useContext(AlertContext);
   const { alert, showAlert } = alertContext;
 
   // Get projects when the component is loaded

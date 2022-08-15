@@ -7,10 +7,10 @@ import LogIn from "./components/auth/LogIn";
 import SignIn from "./components/auth/SignIn";
 import Projects from "./components/projects/Projects";
 
-import TareaState from "./context/tareas/tareaState";
-import AlertaState from "./context/alertas/alertaState";
-import AuthState from "./context/autenticacion/authState";
-import ProyectoState from "./context/proyectos/proyectoState";
+import TaskState from "./context/tasks/taskState";
+import AlertState from "./context/alerts/alertState";
+import AuthState from "./context/authentication/authState";
+import ProjectState from "./context/projects/projectState";
 
 // Check for a token in local storage
 const token = localStorage.getItem("token");
@@ -20,9 +20,9 @@ if (token) {
 
 function App() {
   return (
-    <ProyectoState>
-      <TareaState>
-        <AlertaState>
+    <ProjectState>
+      <TaskState>
+        <AlertState>
           <AuthState>
             <Router>
               <Routes>
@@ -39,9 +39,9 @@ function App() {
               </Routes>
             </Router>
           </AuthState>
-        </AlertaState>
-      </TareaState>
-    </ProyectoState>
+        </AlertState>
+      </TaskState>
+    </ProjectState>
   );
 }
 

@@ -3,7 +3,7 @@ import SideBar from "../layout/SideBar";
 import TaskForm from "../tasks/TaskForm";
 import TasksList from "../tasks/TasksList";
 import React, { useContext, useEffect } from "react";
-import AuthContext from "../../context/autenticacion/authContext";
+import AuthContext from "../../context/authentication/authContext";
 
 const Projects = () => {
   const authContext = useContext(AuthContext);
