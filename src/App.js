@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LogIn from "./components/auth/LogIn";
 import SignIn from "./components/auth/SignIn";
-import Proyectos from "./components/proyectos/Proyectos";
+import Projects from "./components/projects/Projects";
 
 import TareaState from "./context/tareas/tareaState";
 import AlertaState from "./context/alertas/alertaState";
@@ -29,7 +29,7 @@ function App() {
                 <Route path="/" element={<LogIn />} />
                 <Route path="/nueva-cuenta" element={<SignIn />} />
                 // TODO: fix this private route
-                <Route path="/proyectos" element={<Proyectos />} />
+                <Route path="/proyectos" element={<Projects />} />
                 {/* <RutaPrivada exact path="/proyectos" component={Proyectos} /> */}
               </Routes>
             </Router>

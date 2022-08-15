@@ -1,18 +1,16 @@
-import React, { useContext, useEffect } from 'react';
-import SideBar from "../layout/SideBar";
 import NavBar from "../layout/NavBar";
+import SideBar from "../layout/SideBar";
 import FormTarea from "../tareas/FormTarea";
 import ListadoTareas from "../tareas/ListadoTareas";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/autenticacion/authContext";
 
-const Proyectos = () => {
-
-  // Extraer info de autenticacion
+const Projects = () => {
   const authContext = useContext(AuthContext);
-  const { usuarioAutenticado } = authContext;
+  const { authenticatedUser } = authContext;
 
   useEffect(() => {
-    usuarioAutenticado();
+    authenticatedUser();
     // eslint-disable-next-line
   }, []);
 
@@ -30,6 +28,6 @@ const Proyectos = () => {
       </div>
     </div>
   );
-}
- 
-export default Proyectos;
+};
+
+export default Projects;
