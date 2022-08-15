@@ -13,7 +13,7 @@ const Login = (props) => {
   // If the password or the user does not exists
   useEffect(() => {
     if (authenticated) {
-      props.history.push("/proyectos");
+      props.history.push("/projects");
     }
 
     if (message) {
@@ -49,7 +49,6 @@ const Login = (props) => {
   };
 
   return (
-    // TODO translate css class names
     <div className="user-form">
       {alert ? (
         <div className={`alert ${alert.category}`}>{alert.msg}</div>
