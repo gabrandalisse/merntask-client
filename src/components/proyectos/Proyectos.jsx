@@ -17,13 +17,13 @@ const Proyectos = () => {
   }, []);
 
   return (
-    <div className="contenedor-app">
+    <div className="app-container">
       <Sidebar />
-      <div className="seccion-principal">
+      <div className="principal-section">
         <Barra />
         <main>
           <FormTarea />
-          <div className="contenedor-tareas">
+          <div className="tasks-container">
             <ListadoTareas />
           </div>
         </main>

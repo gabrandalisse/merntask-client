@@ -47,7 +47,7 @@ const NuevoProyecto = () => {
       <Fragment>
         <button 
           type="button" 
-          className="btn btn-block btn-primario"
+          className="btn btn-block btn-primary"
           onClick={e => mostrarFormulario()}
         >
           Nuevo Proyecto
@@ -57,7 +57,7 @@ const NuevoProyecto = () => {
           formulario ?
           (
             <form 
-              className="formulario-nuevo-proyecto"
+              className="form-new-project"
               onSubmit={onSubmitProyecto}
             >
               <input
@@ -71,13 +71,13 @@ const NuevoProyecto = () => {
 
               <input
                 type="submit"
-                className="btn btn-primario btn-block"
+                className="btn btn-primary btn-block"
                 value="Agregar Proyecto"
               />
             </form>
           ) : null }
 
-          { errorformulario ? <p className="mensaje error">El nombre del Proyecto es obligatorio</p> : null }
+          { errorformulario ? <p className="message error">El nombre del Proyecto es obligatorio</p> : null }
 
         
       </Fragment>

@@ -52,19 +52,19 @@ const NuevaCuenta = (props) => {
       || email.trim() === "" 
       || password.trim() === "" 
       || confirmar.trim() === ""){
-        mostrarAlerta("Todos los campos son obligatorios", "alerta-error");  
+        mostrarAlerta("Todos los campos son obligatorios", "alert-error");  
         return;
     }
 
     // Validacion de password minimo de 6 caracteres
     if(password.length < 6){
-      mostrarAlerta("El password debe ser de al menos 6 caracteres", "alerta-error"); 
+      mostrarAlerta("El password debe ser de al menos 6 caracteres", "alert-error"); 
       return;
     }
 
     // Validacion de password iguales
     if(password !== confirmar){
-      mostrarAlerta("Los passwords deben ser iguales", "alerta-error"); 
+      mostrarAlerta("Los passwords deben ser iguales", "alert-error"); 
       return;
     }
 
@@ -77,12 +77,12 @@ const NuevaCuenta = (props) => {
   }
 
   return (
-    <div className="form-usuario">
-      { alerta ? ( <div className={`alerta ${alerta.categoria}`} >{alerta.msg}</div> ) : null }
-      <div className="contenedor-form sombra-dark">
+    <div className="user-form">
+      { alerta ? ( <div className={`alert ${alerta.categoria}`} >{alerta.msg}</div> ) : null }
+      <div className="form-container shadow-dark">
         <h1>Obtener una Cuenta</h1>
         <form onSubmit={onSubmit}>
-          <div className="campo-form">
+          <div className="form-field">
             <label htmlFor="nombre">Nombre</label>
             <input
               type="text"
@@ -93,7 +93,7 @@ const NuevaCuenta = (props) => {
               onChange={onChange}
             />
           </div>
-          <div className="campo-form">
+          <div className="form-field">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -104,7 +104,7 @@ const NuevaCuenta = (props) => {
               onChange={onChange}
             />
           </div>
-          <div className="campo-form">
+          <div className="form-field">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -116,7 +116,7 @@ const NuevaCuenta = (props) => {
             />
           </div>
           
-          <div className="campo-form">
+          <div className="form-field">
             <label htmlFor="confirmar">Confirmar Password</label>
             <input
               type="password"
@@ -127,15 +127,15 @@ const NuevaCuenta = (props) => {
               onChange={onChange}
             />
           </div>
-          <div className="campo-form">
+          <div className="form-field">
             <input
               type="submit"
-              className="btn btn-primario btn-block"
+              className="btn btn-primary btn-block"
               value="Registrarme"
             />
           </div>
         </form>
-        <Link to={"/"} className="enlace-cuenta">
+        <Link to={"/"} className="account-link">
           Iniciar Sesión
         </Link>
       </div>

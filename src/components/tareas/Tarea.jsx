@@ -37,15 +37,15 @@ const Tarea = ({ tarea }) => {
     };
 
     return (
-      <li className="tarea sombra">
+      <li className="task shadow">
         <p>{tarea.nombre}</p>
-        <div className="estado">
+        <div className="state">
             {tarea.estado
             ?
                 (
                    <button
                     type="button"
-                    className="completo"
+                    className="complete"
                     onClick={() => cambiarEstado(tarea)}
                    >
                        Completo
@@ -55,7 +55,7 @@ const Tarea = ({ tarea }) => {
                 (
                     <button
                     type="button"
-                    className="incompleto"
+                    className="incomplete"
                     onClick={() => cambiarEstado(tarea)}
                    >
                        Incompleto
@@ -63,17 +63,17 @@ const Tarea = ({ tarea }) => {
                 )
             }
         </div>
-        <div className="acciones">
+        <div className="actions">
             <button
                 type="button"
-                className="btn bt-primario"
+                className="btn bt-primary"
                 onClick={ () => seleccionarTarea(tarea) }
             >
                 Editar
             </button>
             <button
              type="button"
-             className="btn bt-secundario"
+             className="btn bt-secondary"
              onClick={() => tareaEliminar(tarea._id)}
             >
                 Eliminar

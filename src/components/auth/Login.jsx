@@ -1,105 +1,99 @@
-import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import AlertaContext from "../../context/alertas/alertaContext";
+import React, { useState, useContext, useEffect } from "react";
+import AlertContext from "../../context/alertas/alertaContext";
 import AuthContext from "../../context/autenticacion/authContext";
 
 const Login = (props) => {
+  const alertContext = useContext(AlertContext);
+  const { alert, showAlert } = alertContext;
 
-  // Extraer valores del context alerta
-  const alertaContext = useContext(AlertaContext);
-  const { alerta, mostrarAlerta } = alertaContext;
-
-  // Extraer valores del context auth
   const authContext = useContext(AuthContext);
-  const { mensaje, autenticado, iniciarSesion } = authContext;
+  const { message, authenticated, logIn } = authContext;
 
-  // En caso que el pass o usuario no exista
+  // If the password or the user does not exists
   useEffect(() => {
-    if(autenticado){
+    if (authenticated) {
       props.history.push("/proyectos");
     }
 
-    if(mensaje){
-      mostrarAlerta(mensaje.msg, mensaje.categoria); 
+    if (message) {
+      showAlert(message.msg, message.categoria);
     }
     // eslint-disable-next-line
-  }, [mensaje, autenticado, props.history]);
+  }, [message, authenticated, props.history]);
 
-  // State para iniciar sesión
-  const [ usuario, guardarUsuario ] = useState({
+  // Log in state
+  const [user, saveUser] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
-  // Extraer usuario
-  const { email, password } = usuario;
+  const { email, password } = user;
 
-  const onChange = e =>{
-    guardarUsuario({
-      ...usuario,
-      [e.target.name]: e.target.value
+  const onChange = (e) => {
+    saveUser({
+      ...user,
+      [e.target.name]: e.target.value,
     });
   };
 
-  // Cuando el usuario quiere iniciar sesion
-  const onSubmit = e =>{
-     e.preventDefault();
+  const onSubmit = (e) => {
+    e.preventDefault();
 
-    // Validacion de campos vacios
-    if(email.trim() === "" || password.trim() === ""){
-      mostrarAlerta("Todos los campos son obligatorios", "alerta-error");
+    if (email.trim() === "" || password.trim() === "") {
+      showAlert("All fields are required", "alert-error");
       return;
     }
 
-    // Pasar al action
-    iniciarSesion({ email, password });
+    logIn({ email, password });
   };
 
   return (
-    <div className="form-usuario">
-      { alerta ? ( <div className={`alerta ${alerta.categoria}`} >{alerta.msg}</div> ) : null }
-      <div className="contenedor-form sombra-dark">
-        <h1>Iniciar Sesión</h1>
-        
-        <form 
-          onSubmit={onSubmit}
-        >
-          <div className="campo-form">
+    // TODO translate css class names
+    <div className="user-form">
+      {alert ? (
+        <div className={`alert ${alert.category}`}>{alert.msg}</div>
+      ) : null}
+      <div className="form-container shadow-dark">
+        <h1>Log In</h1>
+
+        <form onSubmit={onSubmit}>
+          <div className="form-field">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Tu Email"
+              placeholder="Your Email"
               value={email}
               onChange={onChange}
             />
           </div>
-          <div className="campo-form">
+          <div className="form-field">
             <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
               name="password"
-              placeholder="Tu Password"
+              placeholder="Your Password"
               value={password}
               onChange={onChange}
             />
           </div>
-          <div className="campo-form">
+          <div className="form-field">
             <input
               type="submit"
-              className="btn btn-primario btn-block"
-              value="Iniciar Sesión"
+              className="btn btn-primary btn-block"
+              value="Log In"
             />
           </div>
         </form>
-        <Link to={"/nueva-cuenta"} className="enlace-cuenta">
-          Obtener Cuenta
+        <Link to={"/nueva-cuenta"} className="account-link">
+          Sign In
         </Link>
       </div>
     </div>
   );
-}
- 
+};
+
 export default Login;

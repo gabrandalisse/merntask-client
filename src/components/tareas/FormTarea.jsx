@@ -81,11 +81,11 @@ const FormTarea = () => {
   };
 
   return (
-    <div className="formulario">
+    <div className="custom-form">
       <form
         onSubmit={onSubmit}
       >
-        <div className="contenedor-input">
+        <div className="input-container">
           <input
             type="text"
             className="input-text"
@@ -95,16 +95,16 @@ const FormTarea = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="contenedor-input">
+        <div className="input-container">
           <input 
               type="submit"
-              className="btn btn-primario btn-submit btn-block"
+              className="btn btn-primary btn-submit btn-block"
               value={ tareaseleccionada ? "Editar Tarea" : "Agregar Tarea" } 
           />
         </div>
       </form>
 
-      {errortarea ? <p className="mensaje error">El nombre de la tarea es obligatorio</p> : null}
+      {errortarea ? <p className="message error">El nombre de la tarea es obligatorio</p> : null}
     </div>
   );
 }

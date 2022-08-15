@@ -14,10 +14,10 @@ const Barra = () => {
 
     return (  
         <header className="app-header">
-            { usuario ? ( <p className="nombre-usuario">Hola <span>{usuario.nombre}</span> </p> ) : null  }
-            <nav className="nav-principal">
+            { usuario ? ( <p className="user-name">Hola <span>{usuario.nombre}</span> </p> ) : null  }
+            <nav className="principal-nav">
                 <button
-                    className="btn btn-blank cerrar-sesion"
+                    className="btn btn-blank log-out"
                     onClick={ () => cerrarSesion() }
                 >Cerrar Sesión</button>
             </nav>

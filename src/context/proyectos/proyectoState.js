@@ -46,7 +46,7 @@ const ProyectoState = props =>{
         } catch (error) {
             const alerta = {
                 msg: "Hubo un error",
-                categoria: "alerta-error"
+                categoria: "alert-error"
             };
 
             dispatch({
@@ -70,7 +70,7 @@ const ProyectoState = props =>{
         } catch (error) {
             const alerta = {
                 msg: "Hubo un error",
-                categoria: "alerta-error"
+                categoria: "alert-error"
             };
 
             dispatch({
@@ -107,7 +107,7 @@ const ProyectoState = props =>{
         } catch (error) {
             const alerta = {
                 msg: "Hubo un error",
-                categoria: "alerta-error"
+                categoria: "alert-error"
             };
 
             dispatch({
