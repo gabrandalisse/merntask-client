@@ -3,14 +3,14 @@ import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alerts/alertContext";
 import AuthContext from "../../context/authentication/authContext";
 
-const LogIn = (props) => {
+const SignIn = (props) => {
   const alertContext = useContext(AlertContext);
   const { alert, showAlert } = alertContext;
 
   const authContext = useContext(AuthContext);
-  const { message, authenticated, logIn } = authContext;
+  const { message, authenticated, registerUser } = authContext;
 
-  // If the password or the user does not exists
+  // If the user is authenticated or sign in or if it is a duplicated sign in
   useEffect(() => {
     if (authenticated) {
       props.history.push("/projects");
@@ -24,11 +24,13 @@ const LogIn = (props) => {
 
   // Log in state
   const [user, saveUser] = useState({
+    name: "",
     email: "",
     password: "",
+    confirm: "",
   });
 
-  const { email, password } = user;
+  const { name, email, password, confirm } = user;
 
   const onChange = (e) => {
     saveUser({
@@ -40,12 +42,34 @@ const LogIn = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (email.trim() === "" || password.trim() === "") {
+    if (
+      name.trim() === "" ||
+      email.trim() === "" ||
+      password.trim() === "" ||
+      confirm.trim() === ""
+    ) {
       showAlert("All fields are required", "alert-error");
       return;
     }
 
-    logIn({ email, password });
+    if (password.length < 6) {
+      showAlert(
+        "The passowrd lenght must be at least 6 characters",
+        "alert-error"
+      );
+      return;
+    }
+
+    if (password !== confirm) {
+      showAlert("The passwords are not equals", "alert-error");
+      return;
+    }
+
+    registerUser({
+      name,
+      email,
+      password,
+    });
   };
 
   return (
@@ -54,9 +78,19 @@ const LogIn = (props) => {
         <div className={`alert ${alert.category}`}>{alert.msg}</div>
       ) : null}
       <div className="form-container shadow-dark">
-        <h1>Log In</h1>
-
+        <h1>Sign In</h1>
         <form onSubmit={onSubmit}>
+          <div className="form-field">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              value={name}
+              onChange={onChange}
+            />
+          </div>
           <div className="form-field">
             <label htmlFor="email">Email</label>
             <input
@@ -79,20 +113,32 @@ const LogIn = (props) => {
               onChange={onChange}
             />
           </div>
+
+          <div className="form-field">
+            <label htmlFor="confirm">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm"
+              name="confirm"
+              placeholder="Your password"
+              value={confirm}
+              onChange={onChange}
+            />
+          </div>
           <div className="form-field">
             <input
               type="submit"
               className="btn btn-primary btn-block"
-              value="Log In"
+              value="Sign In"
             />
           </div>
         </form>
-        <Link to={"/nueva-cuenta"} className="account-link">
-          Sign In
+        <Link to={"/"} className="account-link">
+          Log In
         </Link>
       </div>
     </div>
   );
 };
 
-export default LogIn;
+export default SignIn;
