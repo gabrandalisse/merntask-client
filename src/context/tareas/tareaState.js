@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import TareaContext from "./tareaContext";
 import TareaReducer from "./tareaReducer";
-import clienteAxios from "../../config/axios";
+import axiosClient from "../../config/axios";
 
 import { 
     TAREAS_PROYECTOS,
@@ -26,7 +26,7 @@ const TareaState = props => {
     // Obtener las tareas de un proyecto
     const obtenerTareas = async proyecto => {
         try {
-            const resultado = await clienteAxios.get("/api/tareas", { params: { proyecto } });
+            const resultado = await axiosClient.get("/api/tareas", { params: { proyecto } });
 
             dispatch({
                 type: TAREAS_PROYECTOS,
@@ -40,7 +40,7 @@ const TareaState = props => {
     // Agregar una tarea al proyecto seleccionado
     const agregarTarea = async tarea => {
         try {
-            const resultado = await clienteAxios.post("/api/tareas", tarea);
+            const resultado = await axiosClient.post("/api/tareas", tarea);
             console.log(resultado);
             dispatch({
                 type: AGREGAR_TAREA,
@@ -61,7 +61,7 @@ const TareaState = props => {
     // Eliminar tarea por id
     const eliminarTarea = async (id, proyecto) => {
         try {
-            await clienteAxios.delete(`/api/tareas/${id}`, { params: { proyecto }});
+            await axiosClient.delete(`/api/tareas/${id}`, { params: { proyecto }});
 
             dispatch({
                 type: ELIMINAR_TAREA,
@@ -76,7 +76,7 @@ const TareaState = props => {
     // Modifica una tarea
     const actualizarTarea = async tarea => {
         try {
-            const resultado = await clienteAxios.put(`/api/tareas/${tarea._id}`, tarea);
+            const resultado = await axiosClient.put(`/api/tareas/${tarea._id}`, tarea);
 
             dispatch({
                 type: ACTUALIZAR_TAREA,

@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import clienteAxios from "../../config/axios";
+import axiosClient from "../../config/axios";
 
 import proyectoContext from "./proyectoContext";
 import proyectoReducer from "./proyectoReducer";
@@ -36,7 +36,7 @@ const ProyectoState = props =>{
     // Obtener los proyectos
     const obtenerProyectos = async () => {
         try {
-            const resultado = await clienteAxios.get("/api/proyectos");
+            const resultado = await axiosClient.get("/api/proyectos");
 
             dispatch({
                 type: OBTENER_PROYECTOS,
@@ -59,7 +59,7 @@ const ProyectoState = props =>{
     // Agregar nuevo proyecto
     const agregarProyecto = async proyecto => {
         try {
-            const resultado = await clienteAxios.post("/api/proyectos", proyecto);
+            const resultado = await axiosClient.post("/api/proyectos", proyecto);
             console.log(resultado);
 
             // Insertar proyecto en el state
@@ -98,7 +98,7 @@ const ProyectoState = props =>{
     // Eliminar un proyecto
     const eliminarProyecto = async proyectoId => {
         try {
-            await clienteAxios.delete(`api/proyectos/${proyectoId}`);
+            await axiosClient.delete(`api/proyectos/${proyectoId}`);
 
             dispatch({
                 type: ELIMINAR_PROYECTO,

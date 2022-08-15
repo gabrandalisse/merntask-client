@@ -1,5 +1,5 @@
 import React from "react";
-import tokenAuth from "./config/tokenAuth";
+import authToken from "./config/tokenAuth";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -15,7 +15,7 @@ import ProyectoState from "./context/proyectos/proyectoState";
 // Check for a token in local storage
 const token = localStorage.getItem("token");
 if (token) {
-  tokenAuth(token);
+  authToken(token);
 }
 
 function App() {

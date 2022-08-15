@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 import AuthContext from "./authContext";
 import AuthReducer from "./authReducer";
-import tokenAuth from "../../config/tokenAuth";
-import clienteAxios from "../../config/axios";
+import authToken from "../../config/tokenAuth";
+import axiosClient from "../../config/axios";
 import { 
     REGISTRO_EXITOSO,
     REGISTRO_ERROR,
@@ -25,7 +25,7 @@ const AuthState = props => {
 
     const registrarUsuario = async datos => {
         try {
-            const respuesta = await clienteAxios.post("/api/usuarios", datos);
+            const respuesta = await axiosClient.post("/api/usuarios", datos);
             console.log(respuesta.data);
 
             dispatch({
@@ -54,11 +54,11 @@ const AuthState = props => {
     const usuarioAutenticado = async () => {
         const token = localStorage.getItem("token");
         if(token){
-            tokenAuth(token);
+            authToken(token);
         }
 
         try {
-            const respuesta = await clienteAxios.get("/api/auth");
+            const respuesta = await axiosClient.get("/api/auth");
             // console.log(respuesta);
             dispatch({
                 type: OBTENER_USUARIO,
@@ -75,7 +75,7 @@ const AuthState = props => {
     // Cuando el usuario inicia sesion
     const iniciarSesion = async datos => {
         try {
-            const respuesta = await clienteAxios.post("/api/auth", datos);
+            const respuesta = await axiosClient.post("/api/auth", datos);
             
             dispatch({
                 type: LOGIN_EXITOSO,
