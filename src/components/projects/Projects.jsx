@@ -1,7 +1,7 @@
 import NavBar from "../layout/NavBar";
 import SideBar from "../layout/SideBar";
-import FormTarea from "../tareas/FormTarea";
-import ListadoTareas from "../tareas/ListadoTareas";
+import TaskForm from "../tasks/TaskForm";
+import TasksList from "../tasks/TasksList";
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/autenticacion/authContext";
 
@@ -20,9 +20,9 @@ const Projects = () => {
       <div className="principal-section">
         <NavBar />
         <main>
-          <FormTarea />
+          <TaskForm />
           <div className="tasks-container">
-            <ListadoTareas />
+            <TasksList />
           </div>
         </main>
       </div>
