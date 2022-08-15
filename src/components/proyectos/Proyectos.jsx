@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import Sidebar from "../layout/Sidebar";
+import SideBar from "../layout/SideBar";
 import NavBar from "../layout/NavBar";
 import FormTarea from "../tareas/FormTarea";
 import ListadoTareas from "../tareas/ListadoTareas";
@@ -18,7 +18,7 @@ const Proyectos = () => {
 
   return (
     <div className="app-container">
-      <Sidebar />
+      <SideBar />
       <div className="principal-section">
         <NavBar />
         <main>
