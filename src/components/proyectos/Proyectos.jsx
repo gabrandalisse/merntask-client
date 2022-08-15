@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Sidebar from "../layout/Sidebar";
-import Barra from "../layout/Barra";
+import NavBar from "../layout/NavBar";
 import FormTarea from "../tareas/FormTarea";
 import ListadoTareas from "../tareas/ListadoTareas";
 import AuthContext from "../../context/autenticacion/authContext";
@@ -20,7 +20,7 @@ const Proyectos = () => {
     <div className="app-container">
       <Sidebar />
       <div className="principal-section">
-        <Barra />
+        <NavBar />
         <main>
           <FormTarea />
           <div className="tasks-container">
