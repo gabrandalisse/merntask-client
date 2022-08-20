@@ -40,7 +40,6 @@ const TaskState = (props) => {
   const addTask = async (task) => {
     try {
       const result = await axiosClient.post("/api/tasks", task);
-      console.log(result);
 
       dispatch({
         type: ADD_TASK,
@@ -72,7 +71,10 @@ const TaskState = (props) => {
 
   const updateTask = async (task) => {
     try {
-      const result = await axiosClient.put(`/api/tasks/${task._id}`, task);
+      const result = await axiosClient.put(
+        `/api/tasks/${task._id.toString()}`,
+        task
+      );
 
       dispatch({
         type: UPDATE_TASK,

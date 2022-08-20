@@ -26,7 +26,6 @@ const AuthState = (props) => {
   const registerUser = async (data) => {
     try {
       const response = await axiosClient.post("/api/users", data);
-      console.log(response.data);
 
       dispatch({
         type: SUCCESS_REGISTER,
@@ -36,6 +35,8 @@ const AuthState = (props) => {
       // Get user
       authenticatedUser();
     } catch (error) {
+      console.log(error);
+
       const alert = {
         msg: error.response.data.msg,
         category: "alert-error",

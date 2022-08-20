@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alerts/alertContext";
 import AuthContext from "../../context/authentication/authContext";
 
 const LogIn = (props) => {
+  const navigate = useNavigate();
+
   const alertContext = useContext(AlertContext);
   const { alert, showAlert } = alertContext;
 
@@ -13,7 +15,7 @@ const LogIn = (props) => {
   // If the password or the user does not exists
   useEffect(() => {
     if (authenticated) {
-      props.history.push("/projects");
+      navigate("/projects");
     }
 
     if (message) {
@@ -24,8 +26,8 @@ const LogIn = (props) => {
 
   // Log in state
   const [user, saveUser] = useState({
-    email: "",
-    password: "",
+    email: "admin@gmail.com",
+    password: "123456789",
   });
 
   const { email, password } = user;
@@ -87,7 +89,7 @@ const LogIn = (props) => {
             />
           </div>
         </form>
-        <Link to={"/nueva-cuenta"} className="account-link">
+        <Link to={"/new-account"} className="account-link">
           Sign In
         </Link>
       </div>

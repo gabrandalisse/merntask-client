@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-    baseURL: 'https://merntasks-server-gab.herokuapp.com/'
+  baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 export default axiosClient;
