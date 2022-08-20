@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
-import React, { useState, useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import AlertContext from "../../context/alerts/alertContext";
+import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/authentication/authContext";
 
 const SignIn = (props) => {
+  const navigate = useNavigate();
+
   const alertContext = useContext(AlertContext);
   const { alert, showAlert } = alertContext;
 
@@ -13,7 +15,7 @@ const SignIn = (props) => {
   // If the user is authenticated or sign in or if it is a duplicated sign in
   useEffect(() => {
     if (authenticated) {
-      props.history.push("/projects");
+      navigate("/projects");
     }
 
     if (message) {
