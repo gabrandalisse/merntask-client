@@ -1,42 +1,47 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import authToken from "./config/tokenAuth";
+import PrivateRoute from "./components/routes/PrivateRoute";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Login from "./components/auth/Login";
-import NuevaCuenta from "./components/auth/NuevaCuenta";
-import Proyectos from "./components/proyectos/Proyectos";
+import LogIn from "./components/auth/LogIn";
+import SignIn from "./components/auth/SignIn";
+import Projects from "./components/projects/Projects";
 
-import ProyectoState from "./context/proyectos/proyectoState";
-import TareaState from "./context/tareas/tareaState";
-import AlertaState from "./context/alertas/alertaState";
-import AuthState from "./context/autenticacion/authState";
-import tokenAuth from "./config/tokenAuth";
-import RutaPrivada from "./components/routes/RutaPrivada";
+import TaskState from "./context/tasks/taskState";
+import AlertState from "./context/alerts/alertState";
+import AuthState from "./context/authentication/authState";
+import ProjectState from "./context/projects/projectState";
 
-// Revisar si tenemos un token
+// Check for a token in local storage
 const token = localStorage.getItem("token");
-if(token){
-  tokenAuth(token);
+if (token) {
+  authToken(token);
 }
-
-// Dentro del <switch> va cada una de las paginas del proyecto
 
 function App() {
   return (
-    <ProyectoState>
-      <TareaState>
-        <AlertaState>
+    <ProjectState>
+      <TaskState>
+        <AlertState>
           <AuthState>
             <Router>
-              <Switch>
-                <Route exact path="/" component={Login} />
-                <Route exact path="/nueva-cuenta" component={NuevaCuenta} />
-                <RutaPrivada exact path="/proyectos" component={Proyectos} />
-              </Switch>
+              <Routes>
+                <Route path="/" element={<LogIn />} />
+                <Route path="/new-account" element={<SignIn />} />
+                <Route
+                  path="/projects"
+                  element={
+                    <PrivateRoute>
+                      <Projects />
+                    </PrivateRoute>
+                  }
+                />
+              </Routes>
             </Router>
           </AuthState>
-        </AlertaState>
-      </TareaState>
-    </ProyectoState>
+        </AlertState>
+      </TaskState>
+    </ProjectState>
   );
 }
 
